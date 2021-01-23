@@ -127,7 +127,7 @@ class BlockChain(models.Model):
 
 ## Gazi Üniversitesi
 #### Blok Zincir 2021
-##### Saygı Değer Hocamız Doç. Dr. Utku KÖSE  Teşekkürler
+##### Saygı Değer Hocamız Doç. Dr. Utku KÖSE'ye Teşekkürler
 - <a href="http://www.utkukose.com/tr/" target="_blank">Doç. Dr. Utku KÖSE  Kişisel Web Sitesi</a>.
 
 
