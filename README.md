@@ -28,7 +28,60 @@ Hash değeri ise: Previous Hash + Data olarak belirlenmektedir.
 Biz miner işlemine atıfda bulunmak ve miner işleminin baside indirgerek anlatmak istediğimiz için miner butonuna tıklandığında
 Hash değerini ve P.Hash değerini bilen madencimiz datayı tahmin etmeye çalışıyor ve tahmin doğru ise blok zincire bağlanmış bulunuyor.
 İşlemlerin kısa süremesi için datayı 2 karakterle sınırlandırdık.
-{% gist 48a77db777d82e5fda35ce0a6011bb38 %} 
+
+### Projenin  Model Kısmı
+``` def _pcreateHash():
+    """Bu fonksiyon  hash üretir"""
+    value = BlockChain.objects.values('id').distinct().last()
+    if value is None:
+
+        return 0
+    else:
+        value = BlockChain.objects.values('hash').distinct().last()
+        return  value['hash']
+
+
+class BlockChain(models.Model):
+    data = models.CharField(max_length=2)
+    p_hash = models.CharField(max_length=64, default=_pcreateHash, unique=True)
+    hash = models.CharField(max_length=64, unique=True,  default=None, null=True)
+    status = models.BooleanField(default=False)
+    time = models.DateTimeField(auto_now_add=True)
+
+
+    class Meta:
+        app_label = 'node1'
+
+    def save(self,*args,**kwargs):
+        """Bu fonksiyon toplam hash üretir"""
+        if self.hash is None:
+            value = BlockChain.objects.values('id').distinct().last()
+            if value is None:
+                md5_key = hashlib.md5(str("12").encode())
+                self.hash = md5_key.hexdigest()
+                super().save(*args, **kwargs)
+            else:
+                try:
+                    total_value = str(self.p_hash + self.data)
+                    print(type(total_value), type(self.p_hash), total_value)
+                    self.hash = hashlib.md5(total_value.encode()).hexdigest()
+                    super().save(*args,**kwargs)
+                except Exception as err:
+                    print(err)
+
+
+```
+
+### Projenin Veri Tabanı Yapısı
+| id | Data          | P_Hash        |   Hash        | Status | Time        |
+| -- |:-------------:| -------------:| -------------:| ---:|  -------------:|
+
+|88  |  12	|    0      |	c20ad4d76fe97759aa27a0c99bff6710	|1|	|2021-01-06 14:41:35.666229|
+|89|23 |	c20ad4d76fe97759aa27a0c99bff6710|6147e50964cf135542be89751ee2196a|1|2021-01-06 14:58:02.822682|
+|90|12 |6147e50964cf135542be89751ee2196a|0d2a349e804923112cb62653a1f97413|1|2021-01-06 15:03:28.333841|
+
+
+
 
 
 ## Ön Hazırlık
