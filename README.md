@@ -13,21 +13,21 @@
 * Arayüz için Angular kullanılmıştır.
 
 > Proof Of Work
-Bitcoin ve diğer pek çok kriptopara birimi, merkezsiz düğümlerin (node) bir araya gelerek oluşturduğu ağlar vasıtasıyla$
-Ağda madenci ismi verilen ve blokzincirine yeni bloklar eklemekle görevli operatörler bulunmaktadır.
+Bitcoin ve diğer pek çok kriptopara birimi, merkezsiz düğümlerin (node) bir araya gelerek oluşturduğu ağlar vasıtasıyla,
+ağda madenci ismi verilen ve blokzincirine yeni bloklar eklemekle görevli operatörler bulunmaktadır.
 Bu blokların eklenebilmesi ise bazı karmaşık matematik problemlerinin çözülmesiyle mümkün olabilmektedir.
 Söz konusu problemleri çözmek hayli zor olduğu için güçlü işlemcilere ihtiyaç duyulmaktadır.
-Problemi çözen ve bloktaki işlemleri doğrulayan ilk madenci işlemi ağa yayınlayarak ağda belirlenen kriptopara ödülünü $
-Madenciler tarafından doğrulanan ağda yayınlanan işlemler blokzinciri olarak adlandırılan dağıtık defter sistemine kayd$
 
 > Projenin Amacı
+
 Blok zincir mantığını kavramak için öncelikle zincir mantığını nasıl çalıştığını anlamamız gerekir.
 Her bir blok kendinden önce gelen bloğun hash değerini değerini previous hash değeri olarak atar.
 Tabiki ilk bloğun öncesi olmadığı için varsayılan "0" olarak atadık.
 Hash değeri ise: Previous Hash + Data olarak belirlenmektedir.
-Biz miner işlemine atıfda bulunmak ve miner işleminin baside indirgerek anlatmak istediğimiz için miner butonuna tıklad$
-Hash değerini ve P.Hash değerini bilen madencimiz datayı tahmin etmeye çalışıyor ve yahmin doğru ise blok zincire bağla$
+Biz miner işlemine atıfda bulunmak ve miner işleminin baside indirgerek anlatmak istediğimiz için miner butonuna tıklandığında
+Hash değerini ve P.Hash değerini bilen madencimiz datayı tahmin etmeye çalışıyor ve tahmin doğru ise blok zincire bağlanmış bulunuyor.
 İşlemlerin kısa süremesi için datayı 2 karakterle sınırlandırdık.
+<script src="https://gist.github.com/erelbi/48a77db777d82e5fda35ce0a6011bb38.js"></script>
 
 
 ## Ön Hazırlık
@@ -68,7 +68,9 @@ Hash değerini ve P.Hash değerini bilen madencimiz datayı tahmin etmeye çalı
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
 - Copyright 2021 © <a href="https://erelbi.github.io/web/" target="_blank">Ergün Elvan Bilsel</a>.
-### Gazi Üniversitesi
+
+
+## Gazi Üniversitesi
 #### Blok Zincir 2021
 ##### Saygı Değer Hocamız Doç. Dr. Utku KÖSE  Teşekkürler
 - <a href="http://www.utkukose.com/tr/" target="_blank">Doç. Dr. Utku KÖSE  Kişisel Web Sitesi</a>.
