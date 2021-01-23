@@ -122,8 +122,9 @@ class BlockChain(models.Model):
 -  ng serve --prod
 -  http://localhost:4200/ adresine browser üzerinden gidilir.
 
+## Projenin İlhamı 
 
-
+<a href="https://blockchaindemo.io/" target="_blank">/BlockChainDemo</a>
 
 ## Lisans
 
