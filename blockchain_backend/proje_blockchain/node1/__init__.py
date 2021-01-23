@@ -1,0 +1,1 @@
+# default_app_config = 'proje_blockchain.node1.apps.Node1Config'
