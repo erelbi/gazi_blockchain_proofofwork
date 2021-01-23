@@ -18,6 +18,12 @@ Bitcoin ve diğer pek çok kriptopara birimi, merkezsiz düğümlerin (node) bir
 ağda madenci ismi verilen ve blokzincirine yeni bloklar eklemekle görevli operatörler bulunmaktadır.
 Bu blokların eklenebilmesi ise bazı karmaşık matematik problemlerinin çözülmesiyle mümkün olabilmektedir.
 Söz konusu problemleri çözmek hayli zor olduğu için güçlü işlemcilere ihtiyaç duyulmaktadır.
+Emek ispatı protokollerde iki sınıf vardır.
+
+*Meydan okuma-karşılık verme protokolleri, istekte bulunan (istemci) ve sağlayıcı (sunucu) arasında doğrudan bir etkileşimli bağlantı olduğunu varsayar. Sağlayıcı bir soru seçer, belirli bir özelliğe sahip bir kümenin ögesi diyelim, istekte bulunan taraf kümeden gerekli cevabı gönderir ve bu cevap sağlayıcı tarafından kontrol edilir. Soru, sağlayıcı tarafından o anda seçildiğinden, zorluğu mevcut yüküne göre ayarlanabilir. Meydan okuma-karşılık verme protokolünün bilinen bir çözüme (sağlayıcı tarafından seçilen) sahip olması ya da sınırlı bir arama alanı içinde var olması halinde talep eden taraftaki iş sınırlı olabilir.
+
+*Çözüm-doğrulama protokolleri böyle bir bağlantıya sahip değildir: Sonuç olarak, talepte bulunan kişi tarafından çözüm aranmadan önce problem bu kişi tarafından ortaya konulmalı ve sağlayıcı hem problem seçimini hem de bulunan çözümü kontrol etmelidir. Bu tür şemaların çoğu Hashcash gibi sınırsız olasılıklı yineleme prosedürleridir.
+
 
 > Projenin Amacı
 
@@ -36,6 +42,13 @@ Hash değerini ve P.Hash değerini bilen madencimiz datayı tahmin etmeye çalı
 * Data tahmini ws teknolojisi ile anlık olarak denenen tahminler angular arayüzüne aktarılır.
 * Miner için Thread mantığı yapmıştık fakat djangonun kendi threadi ile çakışma yapacağı için  kaldırdık. 
 * Miner bir defa çözüm işleminden sonra durmaktadır. İstenilirse  miner işlemi dışardan yapılabilir.
+
+
+> Neden Django Kullanıldı?
+* Projenin ilerleyen kısmında dağıtık defterler yapısını örnek oluşturmak için çoklu veritabını bağlantısı yapabilmesi ve orm yapısıdır.
+* Modüler yapısı sayesinde genişletilebilir.
+* Template kısmını diğer çatılara aktarmak için rest-api kullanımına uygun olması.
+
 
 ### Projenin  Model Kısmı
 ``` 
