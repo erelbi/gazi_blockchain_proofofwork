@@ -29,6 +29,14 @@ Biz miner işlemine atıfda bulunmak ve miner işleminin baside indirgerek anlat
 Hash değerini ve P.Hash değerini bilen madencimiz datayı tahmin etmeye çalışıyor ve tahmin doğru ise blok zincire bağlanmış bulunuyor.
 İşlemlerin kısa süremesi için datayı 2 karakterle sınırlandırdık.
 
+> Projenin Çalışma Mantığı
+* iki karekterli data girilir.
+* İlk data girişi ise p_hash 0 değeri olan bir blok üretilir.
+* Miner işlemi için ilk blok olup olmadığı kontrol edilir. Data tamin edilmeye çalışılır.
+* Data tahmini ws teknolojisi ile anlık olarak denenen tahminler angular arayüzüne aktarılır.
+* Miner için Thread mantığı yapmıştık fakat djangonun kendi threadi ile çakışma yapacağı için  kaldırdık. 
+* Miner bir defa çözüm işleminden sonra durmaktadır. İstenilirse  miner işlemi dışardan yapılabilir.
+
 ### Projenin  Model Kısmı
 ``` 
 def _pcreateHash():
