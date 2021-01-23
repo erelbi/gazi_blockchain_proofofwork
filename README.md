@@ -1,6 +1,6 @@
 # Basit Proof Of Work Mantığı
 
-
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/cfhg5xp0Qqc/0.jpg)](https://www.youtube.com/watch?v=cfhg5xp0Qqc "Block Chain Project")
 
 
 
