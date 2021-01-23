@@ -30,7 +30,8 @@ Hash değerini ve P.Hash değerini bilen madencimiz datayı tahmin etmeye çalı
 İşlemlerin kısa süremesi için datayı 2 karakterle sınırlandırdık.
 
 ### Projenin  Model Kısmı
-``` def _pcreateHash():
+``` 
+def _pcreateHash():
     """Bu fonksiyon  hash üretir"""
     value = BlockChain.objects.values('id').distinct().last()
     if value is None:
